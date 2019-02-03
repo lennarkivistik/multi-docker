@@ -2,6 +2,7 @@ FROM node:alpine as builder
 WORKDIR '/app'
 COPY ./package.json ./
 RUN npm install
+RUN npm install terser@3.14.1 --save-dev
 COPY . .
 RUN npm run build --production
 
