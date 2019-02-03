@@ -1,0 +1,30 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "lennark/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "lennark/multi-server",
+      "hostname": "apiserver",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "lennark/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "lennark/multi-nginx",
+      "hostname": "webrouter",
+      "essential": true,
+      "portMappings": [{ "hostPort": 80, "containerPort": 80 }]
+    }
+  ]
+}
